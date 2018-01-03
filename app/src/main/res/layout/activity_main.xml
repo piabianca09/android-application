@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.piabonilla.myapplication.MainActivity"
-    android:background="@android:color/holo_red_light">
+    android:background="#71d1d2">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -105,11 +105,11 @@
             android:layout_gravity="end"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:padding="8dp"
             android:text="Already have an account?"
             android:textColor="@android:color/background_light"
             android:textColorLink="@android:color/background_light"
-            android:textSize="18sp"
-            android:padding="8dp"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_register"
@@ -117,9 +117,9 @@
             android:layout_width="193dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/holo_red_dark"
-            android:text="Register"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="18dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="Register" />
 
         <ProgressBar
             android:id="@+id/loader"
