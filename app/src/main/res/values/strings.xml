@@ -1,11 +1,3 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="background_image">background image</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="icon">Icon</string>
-    <string name="register">Register</string>
-    <string name="signupLink">Dont have an account? Sign Up</string>
-    <string name="email">Email</string>
-    <string name="applicationName">My Application</string>
 </resources>
