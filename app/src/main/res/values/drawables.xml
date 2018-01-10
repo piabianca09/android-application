@@ -5,4 +5,5 @@
     <item name="ic_menu_schedule" type="drawable">@drawable/schedule</item>
     <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
     <item name="ic_menu_support" type="drawable">@android:drawable/ic_menu_send</item>
+    <item name="ic_menu_calendar" type="drawable">@android:drawable/ic_menu_my_calendar</item>
 </resources>

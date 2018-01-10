@@ -1,11 +1,11 @@
 package com.example.piabonilla.myapplication;
 
-import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 public class navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,12 @@ public class navigation extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_login) {
+            startActivity(new Intent(this, login.class));
+            finish();
+        } else if (id == R.id.action_register) {
+            startActivity(new Intent(this, Registration.class));
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -82,19 +91,41 @@ public class navigation extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
-        }
-        else if (id == R.id.nav_books) {
-            Toast.makeText(this, "Books", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_videos) {
-            Toast.makeText(this, "Videos", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_scheduler) {
-            Toast.makeText(this, "Scheduler", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_share) {
-            Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_support) {
-            Toast.makeText(this, "Chat Support", Toast.LENGTH_SHORT).show();
+        switch (id) {
+            case R.id.nav_home:
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                HomeFragment home = new HomeFragment();
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.layout_for_content, home);
+                fragmentTransaction.commit();
+                break;
+            case R.id.nav_books:
+                startActivity(new Intent(this, login.class));
+                 finish();
+                 break;
+            case R.id.nav_videos:
+                Toast.makeText(this, "Videos", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_scheduler:
+                Toast.makeText(this, "Scheduler", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_calendar:
+                Toast.makeText(this, "Calendar", Toast.LENGTH_SHORT).show();
+                CalendarFragment calendar = new CalendarFragment();
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.layout_for_content, calendar);
+                fragmentTransaction.commit();
+                break;
+            case R.id.nav_share:
+                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_support:
+                Toast.makeText(this, "Chat Support", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                Toast.makeText(this, "Page does not exist.", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
